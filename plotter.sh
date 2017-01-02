@@ -53,9 +53,11 @@ trap finish 2
 #we use temp file for windowing
 temp="temp.txt"
 new_path2=$base/$temp
+
+echo "Press ctrl_c to exit!" 
 #update the temp file with last "window" number of data points...
 while :
 do
   tail -n $window $new_path > $new_path2
-  sleep 2s
+  sleep 1
 done
