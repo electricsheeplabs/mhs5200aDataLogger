@@ -8,8 +8,12 @@ DISCLAIMER: This is my first ever terminal based program (bash/shell script) and
 
 This folder contains a not-so-good excuse for a piece of USB communication software that talks to an MHS2000A signal generator/frequency counter. It retails online (at the time of me typing this) for around 50$ and doesn't have much good software written for it. There is a project at https://github.com/wd5gnr/mhs5200a that enables the user to make and upload arbitrary waveforms to the device (which has 16 spots in storage for such waveforms!). But, I also wanted to log the input frequency of the device and use it more as a data logger/frequency counter, and thus this abomination was born.
 
-This program uses gnuplot, the only additional item you will need on a Linux machine to run this (unless you don't have a c compiler, which you do indeed need). Next, simply download and unzip the project folder, compile the c program to
-an executable called mhsPlotter (in the folder directory in the terminal type "gcc mhsPlotter.c -o mhsPlotter"), give permission to the shell script (something like "chmod 755 plotter.sh"), plug in the device, and execute the shell script with super user permission ("sudo ./plotter.sh").
+This program uses gnuplot, the only additional item you will need on a Linux machine to run this (unless you don't have a c compiler, which you do indeed need). Next, simply 
+1.download and unzip the project folder
+2.compile the c program to an executable called mhsPlotter (in the folder directory in the terminal type "gcc mhsPlotter.c -o mhsPlotter") 3.give permission to the shell script (something like "chmod 755 plotter.sh")
+4. make a folder in the program directory called "data"
+5. plug in the device
+6. execute the shell script with super user permission ("sudo ./plotter.sh").
 
 NOTE: there was plenty of hard coding going on during the making of this project, and one real bad one is the USB device. If your program doesn't run because it says it cannot find device ttyUSB0, try opening up the c program and change the 0 to
 a 1, 2, etc until it recognizes the device, and don’t forget to recompile!...(I have no idea if that will actually work but its the best I got until I find out how to detect the correct device...).
