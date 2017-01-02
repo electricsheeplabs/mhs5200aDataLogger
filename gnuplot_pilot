@@ -1,0 +1,3 @@
+plot 'temp.txt' using 0:1 w l
+pause(1)
+reread
