@@ -14,6 +14,8 @@ This program uses gnuplot, the only additional item you will need on a Linux mac
 4. make a folder in the program directory called "data"
 5. plug in the device
 6. execute the shell script with super user permission ("sudo ./plotter.sh").
+7. to exit, press ctrl_c! (anything else will not terminate all background processes...to find them, type "ps -e" in terminal and "sudo kill (pid number)" to kill a given process)
+
 
 NOTE: there was plenty of hard coding going on during the making of this project, and one real bad one is the USB device. If your program doesn't run because it says it cannot find device ttyUSB0, try opening up the c program and change the 0 to
 a 1, 2, etc until it recognizes the device, and don’t forget to recompile!...(I have no idea if that will actually work but its the best I got until I find out how to detect the correct device...).
