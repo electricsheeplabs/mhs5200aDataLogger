@@ -10,9 +10,6 @@ base=${PWD}
 subdir="data"
 new_path=$base/$subdir/$input
 echo $new_path | ./mhsPlotter &
-#PID1=$!
-#echo $PID1
-#echo ps -aux | grep mhsPlotter*
 
 #get window size, must be integer
 num=true
@@ -28,16 +25,12 @@ do
     fi
 done
 
-#start plotting in the bckgnd
-gnuplot -raise -clear gnuplot_pilot &
-
-#kill whole process tree on exit...including background script to get data from mhs
+#kill whole process tree on exit...including background script getting data from mhs
 finish(){
   echo "finished..."
-  #delete temp file
-  rm $new_path2
+  
   #get children, gonna killem
-  cpid=`pgrep -P $curpid`  && echo "$(basename $0) pid: $curpid; child pids:" $cpid
+  cpid=`pgrep -P $curpid`  #&& echo "$(basename $0) pid: $curpid; child pids:" $cpid
 #kill the child pids and main pid
 kill $cpid
 kill $curpid
@@ -50,14 +43,13 @@ kill $curpid
 #set trap for when ctrl c pressed, signal SIGINT is sent, which happens to be "2" below...wtf
 trap finish 2
 
-#we use temp file for windowing
-temp="temp.txt"
-new_path2=$base/$temp
+export FOO=$window
+export name=$new_path
+./refresher.sh &
 
 echo "Press ctrl_c to exit!" 
-#update the temp file with last "window" number of data points...
+
 while :
 do
-  tail -n $window $new_path > $new_path2
   sleep 1
 done

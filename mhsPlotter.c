@@ -42,31 +42,6 @@ int set_interface_attribs(int fd, int speed)
     return 0;
 }
 
-/*
-void set_mincount(int fd, int mcount)
-{
-    struct termios tty;
-
-    if (tcgetattr(fd, &tty) < 0) {
-        printf("Error tcgetattr: %s\n", strerror(errno));
-        return;
-    }
-
-    tty.c_cc[VMIN] = mcount ? 1 : 0;
-    tty.c_cc[VTIME] = 5;        /* half second timer */
-/*
-    if (tcsetattr(fd, TCSANOW, &tty) < 0)
-        printf("Error tcsetattr: %s\n", strerror(errno));
-}
-*/
-/*
-void removeSubstring(char *s,const char *toremove)
-{
-  while( s=strstr(s,toremove) )
-    memmove(s,s+strlen(toremove),1+strlen(s+strlen(toremove)));
-}
-*/
-
 void waitFor (unsigned int secs) {
     unsigned int retTime = time(0) + secs;   // Get finishing time.
     while (time(0) < retTime);               // Loop until it arrives.
@@ -80,18 +55,8 @@ int main()
 
    //printf( "Enter a file name (no extension):");
    scanf("%s", str);
-/*
-   char cwd[1024];
-   if (getcwd(cwd, sizeof(cwd)) != NULL)
-       printf("Current working dir: %s\n", cwd);
-   else
-       perror("getcwd() error");
-*/
-/*
-       strcat(str, ".txt");
-       strcat(cwd, "/data/");
-       strcat(cwd, str);
-*/
+
+//change the USB0 value to USB1, USB2, etc until your device is recognized!
 char *portname = "/dev/ttyUSB0";
 int fd;
 int wlen;
@@ -99,8 +64,8 @@ FILE *fp;
 unsigned char buf[80]="";
 unsigned char buf1[15]="";
 int rdlen;
-//this is the serial command to which the MHS52000A responds by sending back frequency data...the whole list of
-//commands can be found online with a quick google (or duck duck go if yor one of THOSE people:D) search
+//this is the serial command to which the MHS52000A responds by sending back frequency data (list of commands in a pdf in the repo)
+
 char command[5] = ":r0e\n";
 
   while(1){
