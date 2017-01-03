@@ -27,4 +27,4 @@ a 1, 2, etc until it recognizes the device, and don’t forget to recompile!...(
 When running, you will be prompted for a file name (with no file extension!!, just a name...) and a window. The window takes integer value entries for the duration (in seconds) you would like to view the signal over (the graph will pan and auto scale within that window). Let me know through push request or email what needs fixed.
 
 ANOTHER NOTE: I used countless pieces of example code online to hack this clunker together, and will try to populate the bottom of this readme
-with some links to those pages (if not for acknowledging the people I ripped offa).
+with some links to those pages (what for acknowledging the people I ripped offa).
