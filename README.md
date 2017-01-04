@@ -29,6 +29,7 @@ When running, you will be prompted for a file name (with no file extension!!, ju
 ANOTHER NOTE: I used countless pieces of example code online to hack this clunker together, and will try to populate the bottom of this readme
 with some links to those pages (what for acknowledging the people I ripped offa).
 
-Known issues: 
+Known issues:
 - c program is not so efficient in that it opens tty port every time...should just do it once.
 - hardcoded the usb device name ("ttyUSB0"), need to add script to find device name...see http://unix.stackexchange.com/questions/144029/command-to-determine-ports-of-a-device-like-dev-ttyusb0
+http://unix.stackexchange.com/questions/138342/how-to-read-write-to-tty-device
